@@ -23,5 +23,5 @@ Copyright (c) 2015 Pirmin Schmid, [MIT license][license].
 
 [example]:https://github.com/pirminschmid/MatlabPlotter/tree/master/example/natcsi.cpp
 [folder]:https://github.com/pirminschmid/MatlabPlotter/tree/master/example
-[eigen3]:http://http://eigen.tuxfamily.org
+[eigen3]:http://eigen.tuxfamily.org
 [license]:https://github.com/pirminschmid/MatlabPlotter/tree/master/LICENSE
