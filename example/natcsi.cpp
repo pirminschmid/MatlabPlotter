@@ -40,7 +40,7 @@
 	output: is given again as a Matlab script that
 	allows plotting all data in Matlab.
 
-	v1.0 2015-11-05 / 2015-11-07 Pirmin Schmid 
+	v1.1 2015-11-05 / 2015-11-16 Pirmin Schmid 
 */
 
 #include <cassert>
@@ -347,6 +347,20 @@ int main() {
 	p.plot(t, y2, "ro");
 	p.plot(x3, y3, "g*");
 	p.plot(x4, y4, "k:");
-	p.legend(5, "exp(sin(2*pi*x))", "t0 to tn", "Natural CSI", "check findindex()", "check corner cases");
+	p.xylabels("x", "y");
+	p.legend("exp(sin(2*pi*x))", "t0 to tn", "Natural CSI", "check findindex()", "check corner cases");
+	p.hold(false);
+
+	// for testing / illustration purpose: semilog scale for y axis
+	p.figure("Natural CSI. semilog scale", MatlabPlotter::SEMILOGY);
+	p.plot_fx("exp(sin(2.*pi.*x))", MIN, MAX, N_X, "b-");
+	p.hold();
+	p.plot(t, y, "b*");
+	p.plot(xx, yy, "r--");
+	p.plot(t, y2, "ro");
+	p.plot(x3, y3, "g*");
+	p.plot(x4, y4, "k:");
+	p.xylabels("x", "y (log scale)");
+	p.legend("exp(sin(2*pi*x))", "t0 to tn", "Natural CSI", "check findindex()", "check corner cases");
 	p.hold(false);
 }
