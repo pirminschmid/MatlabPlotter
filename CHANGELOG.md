@@ -2,6 +2,12 @@
 CHANGELOG
 =========
 
+v0.3 (2015-11-20)
+-----------------
+- plot() rewritten as templated method (no API change)
+- print_row_vector() is now public
+- added subplot
+
 v0.2 (2015-11-16)
 -----------------
 - added semilog and loglog plots

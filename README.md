@@ -5,13 +5,13 @@ A simple C++ class that writes Matlab .m programs as output of calculations e.g.
 
 This may be useful if you do not want to add additional dependencies to your program or write the plotting code by yourself, but you know that all involved parties have Matlab installed on their computers.
 
-Current version v0.2 (2015-11-16). See [changelog][changelog] for details.
+Current version v0.3 (2015-11-20). See [changelog][changelog] for details.
 
 
 Usage
 -----
 
-Include matlab_plotter.h into your C++ program. Use methods as shown in the [example natcsi.cpp][example] ([folder][folder]).
+Include matlab_plotter.h into your C++ program. It needs the standard library of C++11. Use methods as shown in the [example natcsi.cpp][example] ([folder][folder]).
 
 Note: the example needs [Eigen][eigen] to be installed on your system. You may use cmake for building.
 However, the plotter can be used independently of it.
