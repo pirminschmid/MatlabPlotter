@@ -12,7 +12,7 @@
 
 	Feedback welcome: mailbox@pirmin-schmid.ch
 
-	v0.3 2015-11-05 / 2015-11-20; early development, interface may change
+	v0.4 2015-11-05 / 2015-11-23; early development, interface may change
 
 	get latest version from: https://github.com/pirminschmid/MatlabPlotter
 
@@ -27,7 +27,6 @@
 
 #include <iostream>
 #include <string>
-#include <type_traits>
 
 class MatlabPlotter {
 public:
@@ -115,15 +114,14 @@ public:
 	}
 
 
-	// plots values stored in std::vector<double> or Eigen::VectorXd vectors x and y as Matlab row vectors
+	// plots data given in vectors x and y
+	// input: x and y    vectors of scalars, typically stored in std::vector<double>, Eigen::VectorXd, or Eigen::ArrayXd
+	//                   the Vector type has to offer size() and access operator[]
+	//                   the embedded scalar type must be printable by cout <<, and must be a suitable number type for
+	//                   plotting in Matlab
+	//        style      a string with a Matlab style description
 	template<typename Vector>
 	void plot(const Vector &x, const Vector &y, const std::string &style) const {
-#ifdef EIGEN_CORE_H
-		static_assert(std::is_base_of<std::vector<double>, Vector>::value ||
-					  std::is_base_of<Eigen::VectorXd, Vector>::value, "Vector type mismatch! Use std::vector<double> or Eigen::VectorXd.");
-#else
-		static_assert(std::is_base_of<std::vector<double>, Vector>::value, "Vector type mismatch! Use std::vector<double>.");
-#endif
 		if(x.size() != y.size()) {
 			std::cout << "ERROR - plot(): vectors x and y must have equal size." << std::endl;
 			return;
@@ -135,15 +133,14 @@ public:
 	}
 
 
-	// prints a given std::vector<double> or Eigen::VectorXd as Matlab row vector
+	// prints a vector x as Matlab row vector
+	// input: name       string with a suitable variable name in Matlab
+	// input: values     vector of scalars, typically stored in std::vector<double>, Eigen::VectorXd, or Eigen::ArrayXd
+	//                   the Vector type has to offer size() and access operator[]
+	//                   the embedded scalar type must be printable by cout <<, and must be a suitable number type for
+	//                   plotting in Matlab
 	template<typename Vector>
 	void print_row_vector(const std::string &name, const Vector &values) const {
-#ifdef EIGEN_CORE_H
-		static_assert(std::is_base_of<std::vector<double>, Vector>::value ||
-					  std::is_base_of<Eigen::VectorXd, Vector>::value, "Vector type mismatch! Use std::vector<double> or Eigen::VectorXd.");
-#else
-		static_assert(std::is_base_of<std::vector<double>, Vector>::value, "Vector type mismatch! Use std::vector<double>.");
-#endif
 		bool first = true;
 		std::cout << name << " = [";
 		int n = values.size();
@@ -182,6 +179,12 @@ public:
 		std::cout << "subplot(" << m << "," << n << "," << p << ");" << std::endl;
 	}
 
+	// adds title
+	// note: as in Matlab, title needs to be called after the first plot to be effective
+	// (it adds a title to existing axes). This function here behaves identically on purpose.
+	void title(const std::string &title) const {
+		std::cout << "title('" << title << "');" << std::endl;
+	}
 
 	// adds x and y axis labels
 	void xylabels(const std::string &xlabel, const std::string &ylabel) const {

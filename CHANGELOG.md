@@ -2,11 +2,19 @@
 CHANGELOG
 =========
 
+v0.4 (2015-11-23)
+-----------------
+- added title()
+- removed restrictive type assertion at the beginning of plot() and print_row_vector().
+  If these functions are used with wrong input type, the error messages will be more cryptic
+  but this gives more flexibility for additional types that can use these templates
+- new example2: Legendre polynomials and Gauss-Legendre quadrature  
+
 v0.3 (2015-11-20)
 -----------------
 - plot() rewritten as templated method (no API change)
 - print_row_vector() is now public
-- added subplot
+- added subplot()
 
 v0.2 (2015-11-16)
 -----------------
@@ -24,3 +32,4 @@ v0.1 (2015-11-05)
 - plot function in given interval
 - classic style variadic function signature used for legend()
 - thus: C style strings (char *)
+- first example: Natural cubic spline interplolation
