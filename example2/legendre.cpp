@@ -20,7 +20,7 @@
  	- applies this GL quadrature to a function f(x) = e^(x^2) over an interval [a,b] = [3,6]
  	- plots the relative error (comparison of P1 to P8 vs reference result by Wolfram|Alpha)
 
-	v1.01 2015-11-22 / 2015-11-27 Pirmin Schmid
+	v1.02 2015-11-22 / 2015-11-27 Pirmin Schmid
 */
 
 //#define _USE_MATH_DEFINES
@@ -174,7 +174,6 @@ double secant_falsi(double x0, double x1, EvalFunction f, int k, const double rt
 //         I assume that row j indicates the j-th zero for j in 1 to k
 //                       column k indicates the solutions for Pk (thus, we will have column vectors of solutions)
 //         note: for C++, index 0 will refer to j=1 and k=1 respectively, and so on.
-// note: This is a templated function that allows using both zero-finding methods, secant and secant_falsi to be used
 MatrixXd gaussPts(const int n, Solver z, const double rtol = 1e-10, const double atol = 1e-12) {
 	MatrixXd zeros = MatrixXd::Zero(n, n);
 
