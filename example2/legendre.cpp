@@ -20,7 +20,7 @@
  	- applies this GL quadrature to a function f(x) = e^(x^2) over an interval [a,b] = [3,6]
  	- plots the relative error (comparison of P1 to P8 vs reference result by Wolfram|Alpha)
 
-	v1.0 2015-11-22 / 2015-11-23 Pirmin Schmid
+	v1.01 2015-11-22 / 2015-11-27 Pirmin Schmid
 */
 
 //#define _USE_MATH_DEFINES
@@ -50,8 +50,8 @@ void legvals(const VectorXd &x, MatrixXd &Lx, MatrixXd &DLx) {
 	}
 
 	double denominator_inv = 0.0;
-	double nominator1 = 0.0;
-	double nominator2 = 0.0;
+	double numerator1 = 0.0;
+	double numerator2 = 0.0;
 
 	// we need a row vector for the calculations below (otherwise Eigen assertion fails)
 	// this seemed the easiest way for me to get one.
@@ -67,11 +67,11 @@ void legvals(const VectorXd &x, MatrixXd &Lx, MatrixXd &DLx) {
 		// these values are calculated fresh for each iteration to avoid any accumulating rounding error
 		// when calculated iteratively from prior values
 		denominator_inv = 1.0 / (double)i; // one division here -> many much faster multiplications than divisions later
-		nominator1 = (double)(2 * i - 1);
-		nominator2 = (double)(i - 1);
+		numerator1 = (double)(2 * i - 1);
+		numerator2 = (double)(i - 1);
 
-		DLx.row(i) = denominator_inv * (nominator1 * (Lx.row(i-1) + DLx.row(i-1).cwiseProduct(xr)) - nominator2 * DLx.row(i-2));
-		Lx.row(i)  = denominator_inv * (nominator1 * Lx.row(i-1).cwiseProduct(xr) - nominator2 * Lx.row(i-2));
+		DLx.row(i) = denominator_inv * (numerator1 * (Lx.row(i-1) + DLx.row(i-1).cwiseProduct(xr)) - numerator2 * DLx.row(i-2));
+		Lx.row(i)  = denominator_inv * (numerator1 * Lx.row(i-1).cwiseProduct(xr) - numerator2 * Lx.row(i-2));
 	}
 }
 
@@ -95,8 +95,8 @@ double Pkx(const double x, const int k) {
 	}
 
 	double denominator = 0.0;
-	double nominator1 = 0.0;
-	double nominator2 = 0.0;
+	double numerator1 = 0.0;
+	double numerator2 = 0.0;
 
 	double result_minus2 = 1.0;
 	double result_minus1 = x;
@@ -104,10 +104,10 @@ double Pkx(const double x, const int k) {
 
 	for(int i = 2; i <= k; i++) {
 		denominator = (double)i;
-		nominator1 = (double)(2 * i - 1);
-		nominator2 = (double)(i - 1);
+		numerator1 = (double)(2 * i - 1);
+		numerator2 = (double)(i - 1);
 
-		result = (nominator1 * result_minus1 * x - nominator2 * result_minus2) / denominator;
+		result = (numerator1 * result_minus1 * x - numerator2 * result_minus2) / denominator;
 		result_minus2 = result_minus1;
 		result_minus1 = result;
 	}
