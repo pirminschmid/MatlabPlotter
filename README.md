@@ -5,7 +5,7 @@ A simple C++ class that writes Matlab .m programs as output of calculations e.g.
 
 This may be useful if you do not want to add additional dependencies to your program or write the plotting code by yourself, but you know that all involved parties have Matlab installed on their computers.
 
-Note: Due to the use of templates, any container type (e.g. vector, array,...) of any library can be used as input vector for plot() and print_row_vector(), as long as the type supports the methods size() and operator[](), and the embedded scalar type can be printed by cout << and is suitable for plotting in Matlab. 
+Note: Due to the use of templates, any container type (e.g. vector, array,...) of any library can be used as input vector for plot() and print\_row\_vector(), as long as the container supports the standard methods size() and operator\[\]\(\), and the embedded scalar type can be printed by cout << and is suitable for plotting in Matlab. 
 
 Current version v0.4 (2015-11-23). See [changelog][changelog] for details. [Feedback][feedback] welcome.
 
@@ -13,7 +13,7 @@ Current version v0.4 (2015-11-23). See [changelog][changelog] for details. [Feed
 Usage
 -----
 
-Include matlab_plotter.h into your C++ program. It needs the standard library of C++11. Use methods as shown in the examples [natcsi.cpp][example] ([folder][folder]) and [legendre.cpp][example2] ([folder][folder2]).
+Include matlab\_plotter.h into your C++ program. It needs the standard library of C++11. Use methods as shown in the examples [natcsi.cpp][example] ([folder][folder]) and [legendre.cpp][example2] ([folder][folder2]).
 
 Note: the examples need [Eigen][eigen] to be installed on your system. You may use cmake for building.
 However, the plotter can be used independently of it.
