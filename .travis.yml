@@ -35,7 +35,7 @@ branches:
 notifications:
   email:
     recipients:
-    - "matlabplotter_build@pirmin-schmid.ch"
+    - matlabplotter_build@pirmin-schmid.ch
     on_success: always
     on_failure: always
 
