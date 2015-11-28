@@ -1,5 +1,6 @@
 MatlabPlotter
 =============
+[![Build Status](https://travis-ci.org/pirminschmid/MatlabPlotter.svg?branch=master)](https://travis-ci.org/pirminschmid/MatlabPlotter)
 
 A simple C++ class that writes Matlab .m programs as output of calculations e.g. using the Eigen C++ library. 
 
