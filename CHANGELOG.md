@@ -2,10 +2,11 @@
 CHANGELOG
 =========
 
-v0.4.1 (2015-11-27) / v0.4.2 (2015-11-28)
+v0.4.1 (2015-11-27) to v0.4.3 (2015-11-28)
 -----------------------------------------
 - minor changes in example2
 - improved README
+- added automatic testing by travis-ci
 
 v0.4 (2015-11-23)
 -----------------
