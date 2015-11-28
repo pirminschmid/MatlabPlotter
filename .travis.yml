@@ -3,8 +3,8 @@ sudo: false
 language: cpp
 
 compiler:
-  - gcc
-  - clang
+- gcc
+- clang
 
 addons:
   apt:
@@ -20,21 +20,24 @@ install:
 - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
 
 before_script:
-  - cd testing
+- cd testing
 
 script:
-  - ./build_examples.sh
+- ./build_examples.sh
 
 after_success:
-  - ./run_examples.sh
+- ./run_examples.sh
 
 branches:
   only:
-    - master
+  - master
 
 notifications:
   email:
-    - "mailbox@pirmin-schmid.ch"
+    recipients:
+    - "matlabplotter_build@pirmin-schmid.ch"
+    on_success: always
+    on_failure: always
 
 os:
-  - linux
+- linux
