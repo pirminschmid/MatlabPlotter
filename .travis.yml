@@ -1,13 +1,17 @@
+sudo: false
+
 language: cpp
 
 compiler:
   - gcc
   - clang
 
-before_install:
-  - echo $LANG
-  - echo $LC_ALL
-  - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update && sudo apt-get install -y libeigen3-dev; fi
+addons:
+  apt:
+    packages:
+    - libeigen3-dev
+
+before_script:
   - cd testing
 
 script:
