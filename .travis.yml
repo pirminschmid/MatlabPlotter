@@ -32,12 +32,5 @@ branches:
   only:
   - master
 
-notifications:
-  email:
-    recipients:
-    - pirmin.schmid@gmail.com
-    on_success: always
-    on_failure: always
-
 os:
 - linux
