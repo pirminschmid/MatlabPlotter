@@ -12,7 +12,7 @@
 
 	Feedback welcome: mailbox@pirmin-schmid.ch
 
-	v0.4 2015-11-05 / 2015-11-23; early development, interface may change
+	v0.5 2015-11-05 / 2015-11-29; early development, interface may change
 
 	get latest version from: https://github.com/pirminschmid/MatlabPlotter
 
@@ -52,19 +52,19 @@ public:
 	//--- public methods
 
 	// writes a comment
-	void comment(const std::string &comment) const {
+	void comment(const std::string& comment) const {
 		std::cout << "% " << comment << std::endl;
 	}
 
 
 	// starts a new figure with name title and currently set plotType
-	void figure(const std::string &title) const {
+	void figure(const std::string& title) const {
 		std::cout << "figure('Name','" << title << "');" << std::endl;
 	}
 
 
 	// starts a new figure with name title and sets plotType for all future plots
-	void figure(const std::string &title, const PlotType newType) {
+	void figure(const std::string& title, const PlotType newType) {
 		plotType = newType;
 		figure(title);
 	}
@@ -121,7 +121,7 @@ public:
 	//                   plotting in Matlab
 	//        style      a string with a Matlab style description
 	template<typename Vector>
-	void plot(const Vector &x, const Vector &y, const std::string &style) const {
+	void plot(const Vector& x, const Vector& y, const std::string& style) const {
 		if(x.size() != y.size()) {
 			std::cout << "ERROR - plot(): vectors x and y must have equal size." << std::endl;
 			return;
@@ -140,7 +140,7 @@ public:
 	//                   the embedded scalar type must be printable by cout <<, and must be a suitable number type for
 	//                   plotting in Matlab
 	template<typename Vector>
-	void print_row_vector(const std::string &name, const Vector &values) const {
+	void print_row_vector(const std::string& name, const Vector& values) const {
 		bool first = true;
 		std::cout << name << " = [";
 		int n = values.size();
@@ -161,7 +161,7 @@ public:
 	// note: f must be described in Matlab syntax that allows vector-wise operations
 	//       therefore, use .* ./ .^ instead of * / and ^, respectively
 	//       you must use x as the variable name
-	void plot_fx(const std::string &f, const double min, const double max, const int n, const std::string &style) const {
+	void plot_fx(const std::string& f, const double min, const double max, const int n, const std::string& style) const {
 		std::cout << "f = @(x) " << f << ";" << std::endl;
 		std::cout << "x = linspace(" << min << "," << max << "," << n << ");" << std::endl;
 		std::cout << plotCommand() << "(x,f(x),'" << style << "');" << std::endl;
@@ -169,7 +169,7 @@ public:
 
 
 	// prints any string text as is
-	void raw(const std::string &text) const {
+	void raw(const std::string& text) const {
 		std::cout << text << std::endl;
 	}
 
@@ -182,12 +182,12 @@ public:
 	// adds title
 	// note: as in Matlab, title needs to be called after the first plot to be effective
 	// (it adds a title to existing axes). This function here behaves identically on purpose.
-	void title(const std::string &title) const {
+	void title(const std::string& title) const {
 		std::cout << "title('" << title << "');" << std::endl;
 	}
 
 	// adds x and y axis labels
-	void xylabels(const std::string &xlabel, const std::string &ylabel) const {
+	void xylabels(const std::string& xlabel, const std::string& ylabel) const {
 		std::cout << "xlabel('" << xlabel << "');" << std::endl;
 		std::cout << "ylabel('" << ylabel << "');" << std::endl;
 	}

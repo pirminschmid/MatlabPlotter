@@ -8,7 +8,7 @@ This may be useful if you do not want to add additional dependencies to your pro
 
 Note: Due to the use of templates, any container type (e.g. vector, array,...) of any library can be used as input vector for plot() and print\_row\_vector(), as long as the container supports the standard methods size() and operator\[\]\(\), and the embedded scalar type can be printed by cout << and is suitable for plotting in Matlab. 
 
-Current version v0.4 (2015-11-23). See [changelog][changelog] for details. [Feedback][feedback] welcome.
+Current version v0.5 (2015-11-29). See [changelog][changelog] for details. [Feedback][feedback] welcome.
 
 
 Usage

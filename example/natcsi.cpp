@@ -40,7 +40,7 @@
 	output: is given again as a Matlab script that
 	allows plotting all data in Matlab.
 
-	v1.1 2015-11-05 / 2015-11-16 Pirmin Schmid 
+	v1.1.1 2015-11-05 / 2015-11-29 Pirmin Schmid 
 */
 
 #include <cassert>
@@ -61,7 +61,7 @@ public:
 	// input:  t  nodes of the grid for pairs (t_i, y_i), sorted!
 	//         y  values y_i at t_i for pairs (t_i, y_i), sorted!
 	// input in std::vector<double> type
-	NatCSI(const vector<double> &t, const vector<double> &y) {
+	NatCSI(const vector<double>& t, const vector<double>& y) {
 		// map std::vector<double> to a VectorXd
 		VectorXd tmp_t = VectorXd::Map(t.data(), t.size());
 		VectorXd tmp_y = VectorXd::Map(y.data(), y.size());
@@ -77,7 +77,7 @@ public:
 	// input:  t  nodes of the grid for pairs (t_i, y_i), sorted!
 	//         y  values y_i at t_i for pairs (t_i, y_i), sorted!
 	// input in Eigen::VectorXd type
-	NatCSI(const VectorXd &t, const VectorXd &y) {
+	NatCSI(const VectorXd& t, const VectorXd& y) {
 		// store a copy of the input vectors
 		this->t = t;
 		this->y = y;

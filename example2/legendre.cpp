@@ -20,7 +20,7 @@
  	- applies this GL quadrature to a function f(x) = e^(x^2) over an interval [a,b] = [3,6]
  	- plots the relative error (comparison of P1 to P8 vs reference result by Wolfram|Alpha)
 
-	v1.02 2015-11-22 / 2015-11-27 Pirmin Schmid
+	v1.0.3 2015-11-22 / 2015-11-29 Pirmin Schmid
 */
 
 //#define _USE_MATH_DEFINES
@@ -40,7 +40,7 @@ using namespace Eigen;
 // input/output: Lx and DLx in R^Nxn
 //               thus, number of given rows N eq. number of elements desired
 //               of the sequences (Pn)n  and (Pn')n
-void legvals(const VectorXd &x, MatrixXd &Lx, MatrixXd &DLx) {
+void legvals(const VectorXd& x, MatrixXd& Lx, MatrixXd& DLx) {
 	// check input
 	long n = x.size();
 	long N = Lx.rows();
@@ -222,7 +222,7 @@ double test_function_for_quadrature(const double x) {
 //         w, x  weights and Gauss points for the given Legendre Polynomial in standard interval [-1,1]
 //               size of both arrays must match, of course
 // return: quadrature approximation for this function in interval [a,b]
-double GLquadrature(const Function f, const double a, const double b, const ArrayXd &w, const ArrayXd &x) {
+double GLquadrature(const Function f, const double a, const double b, const ArrayXd& w, const ArrayXd& x) {
 	int n = w.size();
 	if(n != x.size()) {
 		cout << "vectors of weights and Gauss points must have the same size" << endl;
