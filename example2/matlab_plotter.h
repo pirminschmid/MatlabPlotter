@@ -18,7 +18,7 @@
 
 	(c) 2015 Pirmin Schmid, MIT License
 
-	license text: https://github.com/pirminschmid/MatlabPlotter/tree/master/LICENSE
+	license text: https://github.com/pirminschmid/MatlabPlotter/tree/main/LICENSE
 */
 
 

@@ -1,12 +1,12 @@
 MatlabPlotter
 =============
-[![Build Status](https://travis-ci.org/pirminschmid/MatlabPlotter.svg?branch=master)](https://travis-ci.org/pirminschmid/MatlabPlotter)
+[![Build Status](https://travis-ci.org/pirminschmid/MatlabPlotter.svg?branch=main)](https://travis-ci.org/pirminschmid/MatlabPlotter)
 
-A simple C++ class that writes Matlab .m programs as output of calculations e.g. using the Eigen C++ library. 
+A simple C++ class that writes Matlab .m programs as output of calculations e.g. using the Eigen C++ library.
 
 This may be useful if you do not want to add additional dependencies to your program or write the plotting code by yourself, but you know that all involved parties have Matlab installed on their computers.
 
-Note: Due to the use of templates, any container type (e.g. vector, array,...) of any library can be used as input vector for plot() and print\_row\_vector(), as long as the container supports the standard methods size() and operator\[\]\(\), and the embedded scalar type can be printed by cout << and is suitable for plotting in Matlab. 
+Note: Due to the use of templates, any container type (e.g. vector, array,...) of any library can be used as input vector for plot() and print\_row\_vector(), as long as the container supports the standard methods size() and operator\[\]\(\), and the embedded scalar type can be printed by cout << and is suitable for plotting in Matlab.
 
 Current version v0.5 (2015-11-29). See [changelog][changelog] for details. [Feedback][feedback] welcome.
 
@@ -26,11 +26,11 @@ License
 Copyright (c) 2015 Pirmin Schmid, [MIT license][license].
 
 
-[changelog]:https://github.com/pirminschmid/MatlabPlotter/tree/master/CHANGELOG.md
-[example]:https://github.com/pirminschmid/MatlabPlotter/tree/master/example/natcsi.cpp
-[folder]:https://github.com/pirminschmid/MatlabPlotter/tree/master/example
-[example2]:https://github.com/pirminschmid/MatlabPlotter/tree/master/example2/legendre.cpp
-[folder2]:https://github.com/pirminschmid/MatlabPlotter/tree/master/example2
+[changelog]:https://github.com/pirminschmid/MatlabPlotter/tree/main/CHANGELOG.md
+[example]:https://github.com/pirminschmid/MatlabPlotter/tree/main/example/natcsi.cpp
+[folder]:https://github.com/pirminschmid/MatlabPlotter/tree/main/example
+[example2]:https://github.com/pirminschmid/MatlabPlotter/tree/main/example2/legendre.cpp
+[folder2]:https://github.com/pirminschmid/MatlabPlotter/tree/main/example2
 [eigen]:http://eigen.tuxfamily.org
-[license]:https://github.com/pirminschmid/MatlabPlotter/tree/master/LICENSE
+[license]:https://github.com/pirminschmid/MatlabPlotter/tree/main/LICENSE
 [feedback]:mailto:mailbox@pirmin-schmid.ch?subject=MatlabPlotter
